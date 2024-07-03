@@ -4,8 +4,10 @@ import jakarta.validation.ValidationException;
 import med.voll.api.domain.consulta.DatosAgendarConsulta;
 import med.voll.api.domain.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class MedicoActivo {
+@Service
+public class MedicoActivo implements ValidadorConsultas{
 
     @Autowired
     private MedicoRepository repository;
