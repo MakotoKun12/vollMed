@@ -1,9 +1,7 @@
 package med.voll.api.domain.consulta;
 
-import jakarta.validation.ValidationException;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.medico.MedicoRepository;
-import med.voll.api.domain.paciente.Paciente;
 import med.voll.api.domain.paciente.PacienteRepository;
 import med.voll.api.infra.excepciones.ValidacionDeIntegridad;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +29,10 @@ public class AgendaConsultaService {
             throw new ValidacionDeIntegridad("Este id para el medico no fue encontrado");
         }
 
+        //validaciones
         var paciente = pacienteRepository.findById(datos.idPaciente()).get();
 
         var medico = seleccionarMedico(datos);
-
 
         var consulta = new Consulta(null,medico,paciente,datos.fecha());
 
