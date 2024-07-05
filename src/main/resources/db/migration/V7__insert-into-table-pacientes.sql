@@ -1,8 +1,3 @@
--- Eliminar las consultas asociadas con los pacientes que se eliminarán
-DELETE FROM `vollmed_api`.`consultas`
-WHERE `paciente_id` IN (SELECT `id` FROM `vollmed_api`.`pacientes`);
-
--- Ahora puedes eliminar los pacientes
 DELETE FROM `vollmed_api`.`pacientes`;
 
 INSERT INTO `vollmed_api`.`pacientes` (`id`, `nombre`, `email`, `documento`, `calle`, `distrito`, `complemento`, `numero`, `ciudad`, `telefono`, `activo`)
